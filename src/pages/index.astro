@@ -1,11 +1,60 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+// src/pages/index.astro — полностью замени содержимое этим кодом
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Forklift Service — продажа и сервис вилочной техники в Алматы</title>
+    <meta name="description" content="Продажа и сервисное обслуживание погрузчиков с 1998 года. Николай Витальевич +7 (701) 723-04-70" />
+  </head>
+
+  <body class="bg-gray-100 text-gray-900 min-h-screen flex items-center justify-center px-4">
+
+    <div class="max-w-2xl w-full bg-white rounded-3xl shadow-2xl overflow-hidden">
+
+      <!-- Шапка с логотипом/названием -->
+      <div class="bg-gradient-to-r from-indigo-600 to-blue-700 text-white py-12 text-center">
+        <h1 class="text-4xl md:text-6xl font-black">Forklift Service</h1>
+        <p class="text-xl md:text-2xl mt-3 opacity-90">c прошлого тысячелетия</p>
+        <p class="text-3xl md:text-5xl font-bold mt-6">с 1998 года</p>
+      </div>
+
+      <!-- Основной блок -->
+      <div class="py-16 px-8 text-center">
+        <h2 class="text-3xl md:text-5xl font-bold mb-8">
+          Продажа и сервисное обслуживание<br>вилочной техники
+        </h2>
+
+        <div class="text-2xl md:text-3xl mb-10 text-gray-700">
+          Николай Витальевич
+        </div>
+
+        <!-- Большой кликабельный телефон -->
+        <div class="mb-12">
+          <a href="tel:+77017230470" class="block bg-green-600 hover:bg-green-700 text-white font-bold text-4xl md:text-6xl py-8 rounded-2xl shadow-lg transform hover:scale-105 transition">
+            ☎ +7 (701) 723-04-70
+          </a>
+        </div>
+
+        <!-- Кнопки мессенджеров -->
+        <div class="flex justify-center gap-6 text-6xl">
+          <a href="https://wa.me/77017230470" class="text-green-500 hover:text-green-600">WhatsApp</a>
+          <a href="https://t.me/+77017230470" class="text-blue-500 hover:text-blue-600">Telegram</a>
+        </div>
+
+        <p class="mt-12 text-lg text-gray-600">
+          Работаем по всему Казахстану<br>
+          Выезд, диагностика, ремонт, продажа запчастей и погрузчиков
+        </p>
+      </div>
+
+      <!-- Подвал -->
+      <div class="bg-gray-800 text-white py-8 text-center">
+        <p class="text-xl">Forklift Service © 1998–2025</p>
+      </div>
+    </div>
+  </body>
+</html>
