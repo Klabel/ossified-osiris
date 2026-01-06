@@ -26,3 +26,6 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./dist/
           server-dir: ./httpdocs/
+          protocol: ftp
+          port: 21
+          dangerous-clean-slate: false # Не удалять файлы, которых нет в git (безопаснее)
