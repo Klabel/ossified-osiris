@@ -39,6 +39,24 @@ const { title, description = "Продажа и сервис вилочных п
           gtag('config', 'G-VPQVBHG3D5');
         </script>
 
+        <!-- Google Ads Conversion Tracking Helper -->
+        <script is:inline>
+          // Функция от Google для задержки перехода по ссылке, пока не отправится событие
+          function gtagSendEvent(url) {
+            var callback = function () {
+              if (typeof url === 'string') {
+                window.location = url;
+              }
+            };
+            gtag('event', 'ads_conversion___1', {
+              'event_callback': callback,
+              'event_timeout': 2000,
+              // <event_parameters>
+            });
+            return false;
+          }
+        </script>
+
 	</head>
 	<body class="font-inter text-gray-900 bg-gray-50 flex flex-col min-h-screen">
 		
@@ -127,6 +145,23 @@ const { title, description = "Продажа и сервис вилочных п
 				</div>
 			</div>
 		</footer>
+
+        <!-- Auto-attach conversion tracking to Phone and WhatsApp links -->
+        <script is:inline>
+            document.addEventListener('DOMContentLoaded', () => {
+                // Находим все ссылки с телефоном (tel:) и WhatsApp (wa.me)
+                const conversionLinks = document.querySelectorAll('a[href^="tel:"], a[href*="wa.me"], a[href*="whatsapp"]');
+                
+                conversionLinks.forEach(link => {
+                    link.addEventListener('click', (e) => {
+                        // Предотвращаем стандартный переход, чтобы успел сработать трекер
+                        e.preventDefault();
+                        // Вызываем функцию Google Ads
+                        gtagSendEvent(link.href);
+                    });
+                });
+            });
+        </script>
 
 	</body>
 </html>
