@@ -39,24 +39,6 @@ const { title, description = "Продажа и сервис вилочных п
           gtag('config', 'G-VPQVBHG3D5');
         </script>
 
-        <!-- Google Ads Conversion Tracking Helper -->
-        <script is:inline>
-          // Функция от Google для задержки перехода по ссылке, пока не отправится событие
-          function gtagSendEvent(url) {
-            var callback = function () {
-              if (typeof url === 'string') {
-                window.location = url;
-              }
-            };
-            gtag('event', 'ads_conversion___1', {
-              'event_callback': callback,
-              'event_timeout': 2000,
-              // <event_parameters>
-            });
-            return false;
-          }
-        </script>
-
 	</head>
 	<body class="font-inter text-gray-900 bg-gray-50 flex flex-col min-h-screen">
 		
@@ -91,7 +73,7 @@ const { title, description = "Продажа и сервис вилочных п
 						</a>
 						<span class="text-xs text-green-600 font-medium block">Сейчас работаем</span>
 					</div>
-					<a href="https://wa.me/77017230470" class="bg-green-600 hover:bg-green-700 text-white text-sm font-bold py-2 px-4 rounded-lg shadow-lg transition transform hover:scale-105">
+					<a href="https://wa.me/77017230470" target="_blank" class="bg-green-600 hover:bg-green-700 text-white text-sm font-bold py-2 px-4 rounded-lg shadow-lg transition transform hover:scale-105">
 						WhatsApp
 					</a>
 				</div>
@@ -138,7 +120,7 @@ const { title, description = "Продажа и сервис вилочных п
 					<a href="tel:+77017230470" class="block text-2xl font-bold mb-2 hover:text-blue-400 transition">+7 (701) 723-04-70</a>
 					<p class="text-gray-400 mb-4">Астана / Караганда</p>
 					<div class="flex justify-center md:justify-start gap-4">
-						<a href="https://wa.me/77017230470" class="text-green-500 hover:text-green-400 font-bold">WhatsApp</a>
+						<a href="https://wa.me/77017230470" target="_blank" class="text-green-500 hover:text-green-400 font-bold">WhatsApp</a>
 						<a href="https://t.me/+77017230470" class="text-blue-500 hover:text-blue-400 font-bold">Telegram</a>
 					</div>
 				</div>
@@ -148,15 +130,40 @@ const { title, description = "Продажа и сервис вилочных п
         <!-- Auto-attach conversion tracking to Phone and WhatsApp links -->
         <script is:inline>
             document.addEventListener('DOMContentLoaded', () => {
-                // Находим все ссылки с телефоном (tel:) и WhatsApp (wa.me)
                 const conversionLinks = document.querySelectorAll('a[href^="tel:"], a[href*="wa.me"], a[href*="whatsapp"]');
                 
                 conversionLinks.forEach(link => {
                     link.addEventListener('click', (e) => {
-                        // Предотвращаем стандартный переход, чтобы успел сработать трекер
                         e.preventDefault();
-                        // Вызываем функцию Google Ads
-                        gtagSendEvent(link.href);
+                        const url = link.href;
+                        const target = link.target;
+
+                        const navigate = () => {
+                            if (target === '_blank') {
+                                window.open(url, '_blank');
+                            } else {
+                                window.location.href = url;
+                            }
+                        };
+
+                        if (typeof gtag === 'function') {
+                            let callbackFired = false;
+                            const enhancedCallback = () => {
+                                if (!callbackFired) {
+                                    callbackFired = true;
+                                    navigate();
+                                }
+                            };
+
+                            gtag('event', 'ads_conversion___1', {
+                                'event_callback': enhancedCallback,
+                                'event_timeout': 1500,
+                            });
+
+                            setTimeout(enhancedCallback, 1600);
+                        } else {
+                            navigate();
+                        }
                     });
                 });
             });
