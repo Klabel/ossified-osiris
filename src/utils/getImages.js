@@ -10,6 +10,12 @@ export function getImagesForForklift(slug) {
     }
 
     const files = fs.readdirSync(imagesDir);
+    
+    // Сортируем файлы в естественном порядке (1.jpg, 2.jpg, 10.jpg)
+    files.sort((a, b) => {
+      return a.localeCompare(b, undefined, { numeric: true, sensitivity: 'base' });
+    });
+
     const images = files
       .filter(file => /\.(jpg|jpeg|png|webp)$/i.test(file)) // Фильтруем только изображения
       .map(file => `/images/forklifts/${slug}/${file}`);
