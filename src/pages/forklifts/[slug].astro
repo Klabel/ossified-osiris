@@ -1,20 +1,16 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { forklifts as rawForklifts } from '../../data/forklifts';
-import { getImagesForForklift } from '../../utils/getImages';
+import { getAllForkliftSlugs, getForkliftData } from '../../utils/getForkliftData';
 
 export async function getStaticPaths() {
-  return rawForklifts.map((forklift) => ({
-    params: { slug: forklift.slug },
+  const slugs = getAllForkliftSlugs();
+  return slugs.map((slug) => ({
+    params: { slug },
     props: { 
-      forklift: {
-        ...forklift,
-        images: getImagesForForklift(forklift.slug)
-      }
+      forklift: getForkliftData(slug)
     },
   }));
 }
-
 
 const { forklift } = Astro.props;
 ---
@@ -56,7 +52,7 @@ const { forklift } = Astro.props;
         <div class="flex items-center justify-between mb-4">
             <h1 class="text-3xl md:text-4xl font-black text-gray-900">{forklift.title}</h1>
             <span class="bg-green-100 text-green-800 text-sm font-bold px-3 py-1 rounded-full uppercase tracking-wide">
-                {forklift.status}
+                В наличии
             </span>
         </div>
         

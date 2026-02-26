@@ -1,13 +1,10 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import ForkliftCard from '../components/ForkliftCard.astro';
-import { forklifts as rawForklifts } from '../data/forklifts'; // Импортируем данные
-import { getImagesForForklift } from '../utils/getImages';
+import { getAllForkliftSlugs, getForkliftData } from '../utils/getForkliftData';
 
-const forklifts = rawForklifts.map(forklift => ({
-  ...forklift,
-  images: getImagesForForklift(forklift.slug)
-}));
+const slugs = getAllForkliftSlugs();
+const forklifts = slugs.map(slug => getForkliftData(slug));
 ---
 
 <Layout title="Продажа вилочных погрузчиков в Алматы | Б/У и Новые">
