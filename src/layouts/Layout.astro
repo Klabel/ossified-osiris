@@ -2,44 +2,80 @@
 import '../styles/global.css';
 
 interface Props {
-	title: string;
-	description?: string;
+  title: string;
+  description?: string;
+  image?: string;
+  canonical?: string;
 }
 
-const { title, description = "Продажа и сервис вилочных погрузчиков в Астане, Караганде и по Казахстану." } = Astro.props;
+const {
+  title,
+  description = "Продажа и сервис вилочных погрузчиков в Астане, Караганде и по Казахстану.",
+  image = "/images/og-default.jpg",
+  canonical = Astro.url.href,
+} = Astro.props;
 ---
 
 <!doctype html>
 <html lang="ru">
 	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-		<meta name="description" content={description} />
-		
-		<!-- Open Graph / Facebook -->
-		<meta property="og:type" content="website" />
-		<meta property="og:title" content={title} />
-		<meta property="og:description" content={description} />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
 
-		<!-- Fonts -->
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <!-- SEO -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
 
-        <!-- Google tag (gtag.js) -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-VPQVBHG3D5"></script>
-        <script is:inline>
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={new URL(image, Astro.site)} />
+    <meta property="og:locale" content="ru_RU" />
+    <meta property="og:site_name" content="ForkliftService" />
 
-          gtag('config', 'G-VPQVBHG3D5');
-        </script>
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={new URL(image, Astro.site)} />
 
-	</head>
+    <!-- Schema.org LocalBusiness -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "ForkliftService",
+      "description": description,
+      "url": Astro.site,
+      "telephone": "+77017230470",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "ул. Ермекова 120/2",
+        "addressLocality": "Караганда",
+        "postalCode": "100009",
+        "addressCountry": "KZ"
+      },
+      "areaServed": ["Астана", "Караганда", "Казахстан"]
+    })} />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VPQVBHG3D5"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-VPQVBHG3D5');
+    </script>
+</head>
 	<body class="font-inter text-gray-900 bg-gray-50 flex flex-col min-h-screen">
 		
 		<!-- Header -->
