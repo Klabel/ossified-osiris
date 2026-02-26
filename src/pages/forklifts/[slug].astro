@@ -13,9 +13,45 @@ export async function getStaticPaths() {
 }
 
 const { forklift } = Astro.props;
+
+// SEO: description из info.json + характеристики
+const seoDescription = forklift.description
+  ? `${forklift.description} Цена: ${forklift.price}. Доставка по всему Казахстану.`
+  : `${forklift.title} — купить в Казахстане. ${forklift.specs?.slice(0, 2).join(', ')}. Цена: ${forklift.price}.`;
+
+// Schema.org для товара — Google показывает цену прямо в поиске
+const productSchema = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": forklift.title,
+  "description": seoDescription,
+  "image": forklift.images?.[0],
+  "brand": {
+    "@type": "Brand",
+    "name": forklift.title.split(' ')[2] ?? "Forklift"
+  },
+  "offers": {
+    "@type": "Offer",
+    "priceCurrency": "KZT",
+    "price": forklift.price?.replace(/[^0-9]/g, ''),
+    "availability": "https://schema.org/InStock",
+    "url": Astro.url.href,
+    "seller": {
+      "@type": "Organization",
+      "name": "ForkliftService",
+      "telephone": "+77017230470"
+    }
+  }
+};
 ---
 
-<Layout title={`${forklift.title} | Купить вилочный погрузчик`}>
+<Layout
+  title={`${forklift.title} | Купить вилочный погрузчик в Казахстане`}
+  description={seoDescription}
+>
+  <!-- Schema.org Product — для отображения цены в Google -->
+  <script type="application/ld+json" set:html={JSON.stringify(productSchema)} />
+
   <div class="container mx-auto px-4 py-12">
     <a href="/#catalog" class="inline-flex items-center text-indigo-600 hover:text-indigo-800 mb-8 transition">
       <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
