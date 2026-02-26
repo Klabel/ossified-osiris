@@ -14,6 +14,9 @@ export async function getStaticPaths() {
 
 const { forklift } = Astro.props;
 
+// Вытаскиваем URL заранее как строку
+const pageUrl = Astro.url.href;
+
 // SEO: description из info.json + характеристики
 const seoDescription = forklift.description
   ? `${forklift.description} Цена: ${forklift.price}. Доставка по всему Казахстану.`
@@ -35,7 +38,7 @@ const productSchema = {
     "priceCurrency": "KZT",
     "price": forklift.price?.replace(/[^0-9]/g, ''),
     "availability": "https://schema.org/InStock",
-    "url": Astro.url.href,
+    "url": pageUrl,
     "seller": {
       "@type": "Organization",
       "name": "ForkliftService",
@@ -63,7 +66,7 @@ const productSchema = {
       <div>
         <div class="bg-gray-100 rounded-2xl overflow-hidden mb-4 aspect-w-4 aspect-h-3 relative group">
            {forklift.images.length > 0 ? (
-             <img src={forklift.images[0]} alt={forklift.title} class="w-full h-full object-cover object-center" id="mainImage" />
+             <img src={encodeURI(forklift.images[0])} alt={forklift.title} class="w-full h-full object-cover object-center" id="mainImage" />
            ) : (
              <div class="w-full h-full flex items-center justify-center text-gray-400">Нет фото</div>
            )}
@@ -74,9 +77,10 @@ const productSchema = {
             {forklift.images.map((image, index) => (
               <button 
                 class="flex-shrink-0 w-24 h-24 rounded-lg overflow-hidden border-2 border-transparent hover:border-indigo-500 focus:border-indigo-500 transition cursor-pointer snap-start"
-                onclick={`document.getElementById('mainImage').src = '${image}'`}
+                data-src={encodeURI(image)}
+                onclick="document.getElementById('mainImage').src = decodeURI(this.dataset.src)"
               >
-                <img src={image} alt={`${forklift.title} - фото ${index + 1}`} class="w-full h-full object-cover" />
+                <img src={encodeURI(image)} alt={`${forklift.title} - фото ${index + 1}`} class="w-full h-full object-cover" />
               </button>
             ))}
           </div>
