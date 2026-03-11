@@ -59,7 +59,7 @@ const {
         "postalCode": "100009",
         "addressCountry": "KZ"
       },
-      "areaServed": ["Астана", "Караганда", "Казахстан"]
+      "areaServed": ["Астана", "Караганда", "Алматы", "Казахстан"]
     })} />
 
     <!-- Fonts -->
@@ -89,16 +89,18 @@ const {
 					</a>
 					<div class="hidden md:block h-8 w-px bg-gray-300"></div>
 					<div class="text-sm text-gray-600 hidden md:block">
-						<span class="block font-bold text-gray-800">Астана / Караганда</span>
+						<span class="block font-bold text-gray-800">Астана / Караганда / Алматы</span>
 						Работаем по всему KZ
 					</div>
 				</div>
 
 				<!-- Navigation (Desktop) -->
 				<nav class="hidden md:flex gap-6 font-medium text-gray-700">
-					<a href="/" class="hover:text-indigo-700 transition">Каталог техники</a>
+					<a href="/" class="hover:text-indigo-700 transition">Главная</a>
+					<a href="/catalog" class="hover:text-indigo-700 transition">Каталог техники</a>
 					<a href="/repair" class="hover:text-indigo-700 transition">Ремонт и Сервис</a>
 					<a href="/tires" class="hover:text-indigo-700 transition">Перепрессовка</a>
+					<a href="/parts" class="hover:text-indigo-700 transition">Запчасти</a>
 				</nav>
 
 				<!-- Contacts & CTA -->
@@ -117,9 +119,11 @@ const {
 
 			<!-- Mobile Nav -->
 			<div class="md:hidden border-t border-gray-100 flex justify-around py-2 bg-gray-50 text-sm font-medium text-gray-600">
-				<a href="/" class="p-2 hover:text-indigo-700">Каталог</a>
+				<a href="/" class="p-2 hover:text-indigo-700">Главная</a>
+				<a href="/catalog" class="p-2 hover:text-indigo-700">Каталог</a>
 				<a href="/repair" class="p-2 hover:text-indigo-700">Ремонт</a>
 				<a href="/tires" class="p-2 hover:text-indigo-700">Шины</a>
+				<a href="/parts" class="p-2 hover:text-indigo-700">Запчасти</a>
 			</div>
 		</header>
 

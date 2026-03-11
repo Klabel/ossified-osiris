@@ -1,0 +1,41 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PartCard from '../components/PartCard.astro';
+// import { getAllPartSlugs, getPartData } from '../utils/getPartData';
+
+// const slugs = getAllPartSlugs();
+// const parts = slugs.map(slug => getPartData(slug));
+const parts = [
+  { name: 'Двигатель', price: '100000', image: 'https://placehold.co/600x400/e2e8f0/334155?text=Двигатель' },
+  { name: 'Фильтр', price: '5000', image: 'https://placehold.co/600x400/e2e8f0/334155?text=Фильтр' },
+  { name: 'Шина', price: '25000', image: 'https://placehold.co/600x400/e2e8f0/334155?text=Шина' },
+];
+---
+
+<Layout
+  title="Запчасти для вилочных погрузчиков | ForkliftService"
+  description="Купить запчасти для погрузчиков Toyota, Mitsubishi, Komatsu в Казахстане."
+>
+  
+  <section class="py-16">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h1 class="text-3xl md:text-5xl font-black text-gray-900 mb-4">Запчасти в наличии и на заказ</h1>
+        <p class="text-xl text-gray-600">Оригинальные и аналоговые запчасти для вашей техники</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {parts.map((part) => (
+          <PartCard part={part} />
+        ))}
+      </div>
+      
+      <div class="text-center mt-12">
+        <a href="https://wa.me/77017230470" target="_blank" class="inline-block text-indigo-600 font-bold text-lg hover:underline">
+          Узнать наличие и цены в WhatsApp →
+        </a>
+      </div>
+    </div>
+  </section>
+
+</Layout>

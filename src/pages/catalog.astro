@@ -1,0 +1,132 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ForkliftCard from '../components/ForkliftCard.astro';
+import { getAllForkliftSlugs, getForkliftData } from '../utils/getForkliftData';
+
+const slugs = getAllForkliftSlugs();
+const forklifts = slugs.map(slug => getForkliftData(slug));
+---
+
+<Layout
+  title="Продажа вилочных погрузчиков в Астане и Караганде | ForkliftService"
+  description="Купить б/у вилочный погрузчик Toyota, Mitsubishi, Komatsu в Казахстане. Гарантия 6 месяцев, доставка по всему КЗ."
+>
+  
+  <!-- Hero Section (УТП) -->
+  <section class="relative bg-indigo-900 text-white py-20 overflow-hidden">
+    <div class="absolute inset-0 opacity-20 bg-[url('https://placehold.co/1920x1080/1e1b4b/ffffff?text=Warehouse+Background')] bg-cover bg-center"></div>
+    <div class="container mx-auto px-4 relative z-10 text-center md:text-left">
+      <div class="max-w-3xl">
+        <h1 class="text-4xl md:text-6xl font-black leading-tight mb-6">
+          Вилочные погрузчики из Японии и Европы <span class="text-yellow-400">в наличии</span>
+        </h1>
+        <p class="text-xl md:text-2xl text-gray-300 mb-8">
+          Подберем технику под ваш бюджет за 15 минут. Гарантия от 6 месяцев. Доставка по всему Казахстану.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="#catalog" class="bg-yellow-500 hover:bg-yellow-400 text-gray-900 font-bold text-lg py-4 px-8 rounded-xl shadow-lg transition transform hover:scale-105 text-center">
+            Смотреть каталог
+          </a>
+          <a href="https://wa.me/77017230470" target="_blank" class="bg-white/10 hover:bg-white/20 backdrop-blur border border-white/30 text-white font-bold text-lg py-4 px-8 rounded-xl transition text-center">
+            Получить прайс в WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quiz Section (Опросник) -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="bg-white rounded-3xl shadow-xl p-8 md:p-12 border border-indigo-100 max-w-4xl mx-auto text-center">
+        <h2 class="text-3xl font-bold mb-4 text-gray-900">Не знаете, какой погрузчик выбрать?</h2>
+        <p class="text-lg text-gray-600 mb-8">Ответьте на 4 вопроса и получите подборку из 3-х вариантов с ценами и фото.</p>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-left mb-8">
+            <div class="p-4 border rounded-xl hover:border-indigo-500 cursor-pointer transition bg-gray-50">
+                <span class="font-bold block mb-1">1. Грузоподъемность?</span>
+                <span class="text-sm text-gray-500">1.5т / 2.0т / 3.0т / 5.0т+</span>
+            </div>
+            <div class="p-4 border rounded-xl hover:border-indigo-500 cursor-pointer transition bg-gray-50">
+                <span class="font-bold block mb-1">2. Тип двигателя?</span>
+                <span class="text-sm text-gray-500">Дизель / Газ-бензин / Электро</span>
+            </div>
+             <div class="p-4 border rounded-xl hover:border-indigo-500 cursor-pointer transition bg-gray-50">
+                <span class="font-bold block mb-1">3. Высота подъема?</span>
+                <span class="text-sm text-gray-500">3м / 4.5м (вагонник) / 6м</span>
+            </div>
+             <div class="p-4 border rounded-xl hover:border-indigo-500 cursor-pointer transition bg-gray-50">
+                <span class="font-bold block mb-1">4. Бюджет?</span>
+                <span class="text-sm text-gray-500">Эконом / Средний / Премиум</span>
+            </div>
+        </div>
+
+        <a href="https://wa.me/77017230470?text=Здравствуйте,%20помогите%20подобрать%20погрузчик" target="_blank" class="inline-block bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 px-10 rounded-full shadow-lg transition transform hover:scale-105">
+          Пройти опрос в WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Catalog Section -->
+  <section id="catalog" class="py-16">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-5xl font-black text-gray-900 mb-4">Каталог техники</h2>
+        <p class="text-xl text-gray-600">Реальные фото и честное описание состояния</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {forklifts.map((forklift) => (
+          <ForkliftCard forklift={forklift} />
+        ))}
+      </div>
+      
+      <div class="text-center mt-12">
+        <a href="https://wa.me/77017230470" target="_blank" class="inline-block text-indigo-600 font-bold text-lg hover:underline">
+          Показать все предложения в PDF-каталоге →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Clients Section -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-12">Наши клиенты</h2>
+        <div class="flex flex-wrap justify-center gap-8 md:gap-16 items-center opacity-80 grayscale hover:grayscale-0 transition-all duration-500">
+            
+            <!-- Coca-Cola -->
+            <div class="text-center group">
+                <div class="h-24 w-48 bg-gray-50 rounded-xl flex items-center justify-center shadow-sm border border-gray-100 group-hover:border-red-500 transition">
+                    <span class="font-black text-2xl text-red-600">Coca-Cola</span>
+                </div>
+                <p class="text-xs text-gray-500 mt-2">CCI Kazakhstan (Астана)</p>
+            </div>
+
+            <!-- Efes -->
+            <div class="text-center group">
+                <div class="h-24 w-48 bg-gray-50 rounded-xl flex items-center justify-center shadow-sm border border-gray-100 group-hover:border-blue-800 transition">
+                    <span class="font-black text-2xl text-blue-900">EFES</span>
+                </div>
+                <p class="text-xs text-gray-500 mt-2">Efes Kazakhstan (Караганда)</p>
+            </div>
+
+        </div>
+    </div>
+  </section>
+
+  <!-- Brands Section -->
+  <section class="py-16 bg-gray-100">
+    <div class="container mx-auto px-4">
+        <h2 class="text-2xl font-bold text-center mb-8 text-gray-600">Мы обслуживаем бренды</h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 opacity-50 grayscale">
+            <div class="h-16 flex items-center justify-center"><span class="font-bold text-xl text-gray-400">TOYOTA</span></div>
+            <div class="h-16 flex items-center justify-center"><span class="font-bold text-xl text-gray-400">KOMATSU</span></div>
+            <div class="h-16 flex items-center justify-center"><span class="font-bold text-xl text-gray-400">LINDE</span></div>
+            <div class="h-16 flex items-center justify-center"><span class="font-bold text-xl text-gray-400">TCM</span></div>
+        </div>
+    </div>
+  </section>
+
+</Layout>
