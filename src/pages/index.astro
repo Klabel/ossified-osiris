@@ -3,23 +3,47 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout
-  title="ForkliftService - Ремонт и обслуживание спецтехники в Казахстане"
-  description="Профессиональный ремонт и сервисное обслуживание вилочных погрузчиков и другой спецтехники в Астане, Караганде и Алматы."
+  title="Ремонт и обслуживание вилочных погрузчиков в Казахстане — Астана, Карагандa | lifter.kz"
+  description="Сервисный центр вилочных погрузчиков в Астане и Карагандe. Выездной ремонт, ТО, запчасти, шины. Работаем с Toyota, Komatsu, Linde, Hyster и другими марками."
 >
-  
+
+  <!-- Schema.org: Organization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "ForkliftService",
+    "url": "https://lifter.kz",
+    "telephone": "+77017230470",
+    "description": "Ремонт и обслуживание вилочных погрузчиков в Казахстане",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Карагандa",
+      "addressCountry": "KZ"
+    },
+    "areaServed": "KZ",
+    "sameAs": []
+  }
+  </script>
+
   <!-- Hero Section -->
   <section class="relative bg-indigo-900 text-white py-24">
     <div class="absolute inset-0 opacity-20 bg-[url('https://placehold.co/1920x1080/1e1b4b/ffffff?text=Workshop')] bg-cover bg-center"></div>
     <div class="container mx-auto px-4 relative z-10 text-center">
       <h1 class="text-4xl md:text-6xl font-black leading-tight mb-6">
-        Надежный сервис для вашей спецтехники
+        Ремонт вилочных погрузчиков в Астане и Карагандe
       </h1>
       <p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
-        Работаем в Астане, Караганде и Алматы. Ремонтируем вилочные погрузчики, складскую технику и многое другое.
+        Выездной сервис, запчасти и шины. Работаем с любой техникой — Toyota, Komatsu, Linde, Hyster и другими марками.
       </p>
-      <a href="/repair" class="bg-yellow-500 hover:bg-yellow-400 text-gray-900 font-bold text-lg py-4 px-8 rounded-xl shadow-lg transition transform hover:scale-105">
-        Узнать больше о ремонте
-      </a>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/repair" class="bg-yellow-500 hover:bg-yellow-400 text-gray-900 font-bold text-lg py-4 px-8 rounded-xl shadow-lg transition transform hover:scale-105">
+          Вызвать мастера
+        </a>
+        <a href="https://wa.me/77017230470" target="_blank" class="bg-white/10 hover:bg-white/20 backdrop-blur border border-white/30 text-white font-bold text-lg py-4 px-8 rounded-xl transition text-center">
+          Написать в WhatsApp
+        </a>
+      </div>
     </div>
   </section>
 
@@ -29,10 +53,10 @@ import Layout from '../layouts/Layout.astro';
       <div class="max-w-4xl mx-auto text-center">
         <h2 class="text-3xl md:text-5xl font-black text-gray-900 mb-6">О компании</h2>
         <p class="text-lg text-gray-600 mb-8">
-          Мы — команда профессионалов, специализирующаяся на ремонте и обслуживании спецтехники. Наша цель — обеспечить бесперебойную работу вашего парка техники, предлагая качественные услуги и запчасти.
+          Мы — специализированный сервисный центр по ремонту и обслуживанию вилочных погрузчиков. Работаем более 10 лет. Наша цель — обеспечить бесперебойную работу вашего парка техники с минимальным простоем.
         </p>
         <p class="text-lg text-gray-600">
-          Наши представительства находятся в трех ключевых городах Казахстана: <span class="font-bold">Астана, Караганда и Алматы</span>, что позволяет нам оперативно реагировать на запросы клиентов по всей стране.
+          Представительства в трёх ключевых городах Казахстана: <span class="font-bold">Астана, Карагандa и Алматы</span>. Выездные бригады работают по всей стране — от Павлодара до Шымкента.
         </p>
       </div>
     </div>
@@ -42,21 +66,62 @@ import Layout from '../layouts/Layout.astro';
   <section class="py-20 bg-gray-50">
     <div class="container mx-auto px-4">
       <div class="text-center mb-12">
-        <h2 class="text-3xl md:text-5xl font-black text-gray-900 mb-4">Что мы ремонтируем</h2>
-        <p class="text-xl text-gray-600">Мы ремонтируем разное. (Этот текст вы сможете позже исправить)</p>
+        <h2 class="text-3xl md:text-5xl font-black text-gray-900 mb-4">Наши услуги</h2>
+        <p class="text-xl text-gray-600">Полный цикл обслуживания вилочных погрузчиков в одном месте</p>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+
         <div class="bg-white p-8 rounded-xl shadow-md">
-          <h3 class="text-2xl font-bold mb-4">Вилочные погрузчики</h3>
-          <p class="text-gray-600">Ремонт двигателей, гидравлики, электрики и ходовой части.</p>
+          <div class="w-14 h-14 bg-indigo-100 rounded-full flex items-center justify-center mb-4 mx-auto text-indigo-600">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
+          </div>
+          <h3 class="text-2xl font-bold mb-4">Ремонт погрузчиков</h3>
+          <p class="text-gray-600 mb-4">Выездной ремонт и диагностика за 2 часа. Гидравлика, двигатель, электрика, трансмиссия. 80% поломок устраняем на месте.</p>
+          <a href="/repair" class="text-indigo-600 font-semibold hover:underline">Подробнее →</a>
         </div>
+
         <div class="bg-white p-8 rounded-xl shadow-md">
-          <h3 class="text-2xl font-bold mb-4">Складская техника</h3>
-          <p class="text-gray-600">Обслуживание штабелеров, ричтраков и гидравлических тележек.</p>
+          <div class="w-14 h-14 bg-indigo-100 rounded-full flex items-center justify-center mb-4 mx-auto text-indigo-600">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+          </div>
+          <h3 class="text-2xl font-bold mb-4">Запчасти</h3>
+          <p class="text-gray-600 mb-4">Оригинальные и аналоговые запчасти для всех марок погрузчиков. Собственный склад в Карагандe, доставка по всему Казахстану.</p>
+          <a href="/parts" class="text-indigo-600 font-semibold hover:underline">Подробнее →</a>
         </div>
+
         <div class="bg-white p-8 rounded-xl shadow-md">
-          <h3 class="text-2xl font-bold mb-4">Другая спецтехника</h3>
-          <p class="text-gray-600">Свяжитесь с нами, чтобы уточнить возможность ремонта вашей техники.</p>
+          <div class="w-14 h-14 bg-indigo-100 rounded-full flex items-center justify-center mb-4 mx-auto text-indigo-600">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" stroke-width="2"/><circle cx="12" cy="12" r="3" stroke-width="2"/></svg>
+          </div>
+          <h3 class="text-2xl font-bold mb-4">Шины для погрузчиков</h3>
+          <p class="text-gray-600 mb-4">Цельнолитые и суперэластичные шины. Установка на прессе в Карагандe. Подберём размер и тип под ваши условия работы.</p>
+          <a href="/tires" class="text-indigo-600 font-semibold hover:underline">Подробнее →</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Us -->
+  <section class="py-16 bg-indigo-900 text-white">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-12">Почему выбирают нас</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div>
+          <div class="text-5xl font-black text-yellow-400 mb-2">2 ч</div>
+          <div class="text-gray-300">Выезд мастера после звонка</div>
+        </div>
+        <div>
+          <div class="text-5xl font-black text-yellow-400 mb-2">10+</div>
+          <div class="text-gray-300">Лет опыта в сервисе погрузчиков</div>
+        </div>
+        <div>
+          <div class="text-5xl font-black text-yellow-400 mb-2">80%</div>
+          <div class="text-gray-300">Ремонтов выполняем на месте</div>
+        </div>
+        <div>
+          <div class="text-5xl font-black text-yellow-400 mb-2">3</div>
+          <div class="text-gray-300">Города присутствия в Казахстане</div>
         </div>
       </div>
     </div>

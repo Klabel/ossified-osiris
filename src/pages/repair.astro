@@ -2,12 +2,34 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="Ремонт вилочных погрузчиков в Астане, Караганде. | Выездной сервис" description="Профессиональный ремонт и обслуживание вилочных погрузчиков. Выездные бригады, запчасти в наличии. Диагностика и капитальный ремонт.">
-  
+<Layout
+  title="Ремонт вилочных погрузчиков в Астане и Карагандe — выездной сервис | lifter.kz"
+  description="Ремонт и обслуживание вилочных погрузчиков в Астане и Карагандe. Выезд мастера за 2 часа. Капремонт двигателей Toyota, Nissan, Isuzu. Гарантия на работы."
+>
+
+  <!-- Schema.org: LocalBusiness -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AutoRepair",
+    "name": "ForkliftService — ремонт вилочных погрузчиков",
+    "description": "Специализированный сервисный центр по ремонту и техническому обслуживанию вилочных погрузчиков в Астане и Карагандe",
+    "url": "https://lifter.kz/repair",
+    "telephone": "+77017230470",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Карагандa",
+      "addressCountry": "KZ"
+    },
+    "areaServed": ["Карагандa", "Астана", "Алматы", "Казахстан"],
+    "openingHours": "Mo-Fr 09:00-18:00"
+  }
+  </script>
+
   <!-- Hero Section -->
   <section class="bg-gray-900 text-white py-20">
     <div class="container mx-auto px-4 text-center">
-      <h1 class="text-4xl md:text-6xl font-black mb-6">Ремонт и сервис вилочных погрузчиков</h1>
+      <h1 class="text-4xl md:text-6xl font-black mb-6">Ремонт вилочных погрузчиков в Астане и Карагандe</h1>
       <p class="text-xl md:text-2xl text-gray-400 mb-8 max-w-3xl mx-auto">
         Выезд мастера на диагностику за 2 часа. Собственный склад запчастей. Гарантия на работы.
       </p>
@@ -21,7 +43,7 @@ import Layout from '../layouts/Layout.astro';
   <section class="py-16">
     <div class="container mx-auto px-4">
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        
+
         <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
           <div class="w-14 h-14 bg-indigo-100 rounded-full flex items-center justify-center mb-6 text-indigo-600">
             <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
@@ -40,7 +62,7 @@ import Layout from '../layouts/Layout.astro';
             <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
           </div>
           <h3 class="text-2xl font-bold mb-4">Капитальный ремонт</h3>
-          <p class="text-gray-600 mb-6">Полное восстановление узлов и агрегатов в нашем сервисном центре в Караганде. Двигатели, АКПП, мосты — всё в одном месте.</p>
+          <p class="text-gray-600 mb-6">Полное восстановление узлов и агрегатов в нашем сервисном центре в Карагандe. Двигатели, АКПП, мосты — всё в одном месте.</p>
            <ul class="space-y-2 text-sm text-gray-500">
             <li>• Капремонт ДВС (Toyota, Nissan, Isuzu)</li>
             <li>• Ремонт АКПП и гидротрансформаторов</li>
@@ -68,10 +90,10 @@ import Layout from '../layouts/Layout.astro';
   <!-- About Section -->
   <section class="py-16 bg-white">
     <div class="container mx-auto px-4 max-w-4xl">
-      <h2 class="text-3xl font-bold mb-6 text-gray-900">Сервисный центр вилочных погрузчиков в Казахстане</h2>
+      <h2 class="text-3xl font-bold mb-6 text-gray-900">Сервисный центр вилочных погрузчиков в Карагандe и Астане</h2>
       <div class="prose prose-lg text-gray-600 space-y-4">
         <p>
-          ForkliftService — специализированный сервисный центр по ремонту и техническому обслуживанию вилочных погрузчиков в Астане и Караганде. Мы работаем с техникой всех основных производителей: Toyota, Nissan, Komatsu, Hyster, Jungheinrich, Linde, Heli, CPCD и другими марками.
+          ForkliftService — специализированный сервисный центр по ремонту и техническому обслуживанию вилочных погрузчиков в Астане и Карагандe. Мы работаем с техникой всех основных производителей: Toyota, Nissan, Komatsu, Hyster, Jungheinrich, Linde, Heli, CPCD и другими марками.
         </p>
         <p>
           Наши механики имеют опыт более 10 лет в обслуживании складской и подъёмной техники. Мы выполняем как плановое техническое обслуживание (ТО), так и срочный ремонт вилочных погрузчиков с выездом на объект заказчика по всему Казахстану.
@@ -143,18 +165,68 @@ import Layout from '../layouts/Layout.astro';
     </div>
   </section>
 
-  <!-- FAQ Section -->
+  <!-- FAQ Section с schema.org -->
   <section class="py-16 bg-white">
     <div class="container mx-auto px-4 max-w-3xl">
       <h2 class="text-3xl font-bold mb-8 text-gray-900">Частые вопросы</h2>
+
+      <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Как быстро приедет мастер в Астану или Карагандy?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "По Астане и Карагандe выезд мастера в течение 1–2 часов после звонка. В другие города Казахстана — согласовываем индивидуально, обычно в день обращения или на следующий день."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "С какими марками погрузчиков вы работаете?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Работаем со всеми популярными марками: Toyota, Nissan, Komatsu, Hyster, Yale, Jungheinrich, Linde, Crown, Heli, CPCD, Hangcha, Doosan, Clark и другими. Опыт работы с японской, европейской и китайской техникой."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Есть ли гарантия на ремонт погрузчика?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Да, на все выполненные работы предоставляется гарантия. Срок гарантии зависит от вида ремонта и устанавливается индивидуально — уточняйте при заказе."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Нужно ли привозить погрузчик в сервис?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Нет, в большинстве случаев мастер выезжает к вам на объект. Около 80% ремонтов выполняется прямо на месте без необходимости транспортировки техники. Капитальный ремонт сложных узлов проводится в нашем сервисном центре в Карагандe."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Работаете ли вы с юридическими лицами?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Да, работаем как с физическими, так и с юридическими лицами. Предоставляем все необходимые закрывающие документы: акт выполненных работ, накладные на запчасти. Возможна работа по договору на сервисное обслуживание."
+            }
+          }
+        ]
+      }
+      </script>
+
       <div class="space-y-4">
 
         <details class="bg-gray-50 rounded-xl p-6 cursor-pointer group">
           <summary class="font-bold text-gray-800 text-lg list-none flex justify-between items-center">
-            Как быстро приедет мастер?
+            Как быстро приедет мастер в Астану или Карагандy?
             <span class="text-indigo-600 text-2xl group-open:rotate-45 transition-transform">+</span>
           </summary>
-          <p class="mt-4 text-gray-600">По Астане и Караганде выезд мастера в течение 1–2 часов после звонка. В другие города Казахстана — согласовываем индивидуально, обычно в день обращения или на следующий день.</p>
+          <p class="mt-4 text-gray-600">По Астане и Карагандe выезд мастера в течение 1–2 часов после звонка. В другие города Казахстана — согласовываем индивидуально, обычно в день обращения или на следующий день.</p>
         </details>
 
         <details class="bg-gray-50 rounded-xl p-6 cursor-pointer group">
