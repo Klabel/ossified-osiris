@@ -1,0 +1,9 @@
+RewriteEngine On
+
+# http → https
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# www → без www
+RewriteCond %{HTTP_HOST} ^www\.lifter\.kz [NC]
+RewriteRule ^ https://lifter.kz%{REQUEST_URI} [L,R=301]
