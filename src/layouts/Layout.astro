@@ -76,6 +76,7 @@ const {
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'G-N14S8FRZMD');
+      gtag('config', 'AW-960707991');
     </script>
 </head>
 	<body class="font-inter text-gray-900 bg-gray-50 flex flex-col min-h-screen">
@@ -169,43 +170,42 @@ const {
 			</div>
 		</footer>
 
-        <!-- Auto-attach conversion tracking to Phone and WhatsApp links -->
+        <!-- Google Ads conversion tracking for phone and WhatsApp clicks -->
         <script is:inline>
-            document.addEventListener('DOMContentLoaded', () => {
-                const conversionLinks = document.querySelectorAll('a[href^="tel:"], a[href*="wa.me"], a[href*="whatsapp"]');
-
-                conversionLinks.forEach(link => {
-                    link.addEventListener('click', (e) => {
-                        e.preventDefault();
-                        const url = link.href;
-                        const target = link.target;
-
-                        const navigate = () => {
-                            if (target === '_blank') {
-                                window.open(url, '_blank');
-                            } else {
-                                window.location.href = url;
-                            }
-                        };
-
-                        if (typeof gtag === 'function') {
-                            let callbackFired = false;
-                            const enhancedCallback = () => {
-                                if (!callbackFired) {
-                                    callbackFired = true;
-                                    navigate();
-                                }
-                            };
-
-                            gtag('event', 'ads_conversion___1', {
-                                'event_callback': enhancedCallback,
-                                'event_timeout': 1500,
-                            });
-
-                            setTimeout(enhancedCallback, 1600);
+            function gtag_report_conversion(url, openInNewTab) {
+                var callback = function () {
+                    if (typeof(url) != 'undefined') {
+                        if (openInNewTab) {
+                            window.open(url, '_blank');
                         } else {
-                            navigate();
+                            window.location.href = url;
                         }
+                    }
+                };
+                gtag('event', 'conversion', {
+                    'send_to': 'AW-960707991/_XiRCJ-Uz5gcEJI7jMoD',
+                    'value': 1.0,
+                    'currency': 'USD',
+                    'event_callback': callback
+                });
+                setTimeout(callback, 1500);
+                return false;
+            }
+
+            document.addEventListener('DOMContentLoaded', () => {
+                const phoneLinks = document.querySelectorAll('a[href^="tel:"]');
+                phoneLinks.forEach(link => {
+                    link.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        gtag_report_conversion(this.href, false);
+                    });
+                });
+
+                const waLinks = document.querySelectorAll('a[href*="wa.me"], a[href*="whatsapp"]');
+                waLinks.forEach(link => {
+                    link.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        gtag_report_conversion(this.href, true);
                     });
                 });
             });
@@ -218,7 +218,6 @@ const {
                 const navLinks = document.querySelectorAll('#desktop-nav a, #mobile-nav a');
 
                 navLinks.forEach(link => {
-                    // Handle root path specifically
                     const linkHref = link.getAttribute('href');
                     if (linkHref === '/' && currentPath === '/') {
                         link.classList.add('active-link');
