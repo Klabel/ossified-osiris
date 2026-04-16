@@ -170,13 +170,17 @@ const {
 			</div>
 		</footer>
 
-        <!-- Google Ads conversion tracking for phone and WhatsApp clicks -->
+        <!-- Conversion tracking: phone and WhatsApp separately -->
         <script is:inline>
             document.addEventListener('DOMContentLoaded', () => {
                 const phoneLinks = document.querySelectorAll('a[href^="tel:"]');
                 phoneLinks.forEach(link => {
                     link.addEventListener('click', function() {
                         if (typeof gtag === 'function') {
+                            gtag('event', 'phone_click', {
+                                'event_category': 'contact',
+                                'event_label': 'phone'
+                            });
                             gtag('event', 'conversion', {
                                 'send_to': 'AW-960707991/_XiRCJ-Uz5gcEJI7jMoD',
                                 'value': 1.0,
@@ -190,6 +194,10 @@ const {
                 waLinks.forEach(link => {
                     link.addEventListener('click', function() {
                         if (typeof gtag === 'function') {
+                            gtag('event', 'whatsapp_click', {
+                                'event_category': 'contact',
+                                'event_label': 'whatsapp'
+                            });
                             gtag('event', 'conversion', {
                                 'send_to': 'AW-960707991/_XiRCJ-Uz5gcEJI7jMoD',
                                 'value': 1.0,
